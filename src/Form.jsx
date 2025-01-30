@@ -17,7 +17,7 @@ const Form = () => {
  let dispatch=useDispatch()
 
  const handleDeposite=()=>{
-    dispatch({type:"diposite",payload:deposite})
+    dispatch({type:"diposite",payload:deposite,trans:1})
     setDeposite("")
  }
   const handleWithdraw=()=>{
@@ -70,6 +70,7 @@ const Form = () => {
             <TableCell style={{ color: '#1976d2', fontWeight: 'bold' }}>Amount</TableCell>
             <TableCell style={{ color: '#1976d2', fontWeight: 'bold' }}>FullName</TableCell>
             <TableCell style={{ color: '#1976d2', fontWeight: 'bold' }}>Mobile</TableCell>
+            <TableCell style={{ color: '#1976d2', fontWeight: 'bold' }}>Transaction No.</TableCell>
           </TableRow>
         </TableHead>
 
@@ -79,6 +80,8 @@ const Form = () => {
               <TableCell>{data.balance}</TableCell>
               <TableCell>{data.fullName}</TableCell>
               <TableCell>{data.mobileNumber}</TableCell>
+              <TableCell>{data.transactionNumber}</TableCell>
+
             </TableRow>
          
         </TableBody>
