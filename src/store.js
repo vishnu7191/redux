@@ -26,7 +26,6 @@ function accountReducer(state=initialState,action){
         }
 }
 
-
 const store=createStore(accountReducer)
 store.dispatch({type:"diposite",payload:1000})
 console.log(store);
