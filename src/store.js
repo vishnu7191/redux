@@ -15,9 +15,12 @@ function accountReducer(state=initialState,action){
              case "diposite":{
                 return {...state,balance:state.balance+ +action.payload,transactionNumber:state.transactionNumber+1}
             }
-        
+            
             case "withdraw":{
                 return {...state,balance:state.balance-action.payload,transactionNumber:state.transactionNumber+1}
+            }
+            case "nameUpdate":{
+                return {...state,fullName:action.payload}
             }
            case "mobileNumberUpdate":{
                 return {...state,mobileNumber:action.payload}

@@ -6,27 +6,32 @@ import { useDispatch, useSelector } from 'react-redux';
 
 const Form = () => {
 
-    const [deposite,setDeposite]=useState("");
-    const [withdraw,setWithdraw]=useState("");
+    const [amount,setAmount]=useState('')
     const [mobile,setMobile]=useState("");
+    const [name,setName]=useState('')
 
   const data=useSelector((state)=>{
          return state
   })
-
+  console.log(" Data :",data);
+  
  let dispatch=useDispatch()
 
  const handleDeposite=()=>{
-    dispatch({type:"diposite",payload:deposite,trans:1})
-    setDeposite("")
+    dispatch({type:"diposite",payload:amount})
+    setAmount("")
  }
   const handleWithdraw=()=>{
-    dispatch({type:"withdraw",payload:withdraw})
-    setWithdraw("")
+    dispatch({type:"withdraw",payload:amount})
+    setAmount("")
   }
   const handleMobile=()=>{
     dispatch({type:"mobileNumberUpdate",payload:mobile})
     setMobile("")
+  }
+  const handleName=()=>{
+    dispatch({type:"nameUpdate",payload:name})
+    setName('')
   }
 
 
@@ -55,10 +60,11 @@ const Form = () => {
     <Typography variant='h4' color='primary' fontWeight={"bold"} gutterBottom> 
         Form Using Redux
     </Typography>
-    <TextField label="Deposite" style={{width:'30%'}} value={deposite} onChange={(e)=>{setDeposite(e.target.value)}}></TextField>  <span> </span>
-    <Button variant='contained' onClick={handleDeposite}>Deposite</Button> <br /><br />
-    <TextField label="Withdraw" style={{width:'30%'}} value={withdraw} onChange={(e)=>{setWithdraw(e.target.value)}}></TextField>  <span> </span>
+    <TextField label="Deposite" style={{width:'30%'}} value={amount} onChange={(e)=>{setAmount(e.target.value)}}></TextField>  <span> </span>
+    <Button variant='contained' onClick={handleDeposite}>Deposite</Button> <span> </span>
     <Button variant='contained' onClick={handleWithdraw} color='danger' style={{color:"white"}}>Withdraw</Button><br /><br />
+    <TextField label="Name" style={{width:'30%'}} value={name} onChange={(e)=>{setName(e.target.value)}}></TextField>  <span> </span>
+    <Button variant='contained' onClick={handleName} >Name Update</Button>  <br /><br />
     <TextField label="Mobile" style={{width:'30%'}} value={mobile} onChange={(e)=>{setMobile(e.target.value)}}></TextField>  <span> </span>
     <Button variant='contained' onClick={handleMobile} >Mobile Update</Button>
     <TableContainer component={Paper} style={{ maxWidth: 500, marginTop: 20 }}>
